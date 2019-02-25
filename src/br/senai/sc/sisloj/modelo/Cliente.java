@@ -7,8 +7,8 @@ public class Cliente {
     private String endcli;
     private String baicli;
     private String comcli;
-    private int cepcli;
-    private int celcli;
+    private long cepcli;
+    private long celcli;
 
     public int getCodcli() {
         return codcli;
@@ -50,22 +50,22 @@ public class Cliente {
         this.comcli = comcli;
     }
 
-    public int getCepcli() {
+    public long getCepcli() {
         return cepcli;
     }
 
-    public void setCepcli(int cepcli) {
+    public void setCepcli(long cepcli) {
         this.cepcli = cepcli;
     }
 
-    public int getCelcli() {
+    public long getCelcli() {
         return celcli;
     }
 
-    public void setCelcli(int celcli) {
+    public void setCelcli(long celcli) {
         this.celcli = celcli;
     }
-    
+
     
     
 }

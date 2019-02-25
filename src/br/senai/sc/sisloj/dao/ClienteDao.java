@@ -16,6 +16,29 @@ public class ClienteDao extends ConnectionFactory {
         this.con = this.getConnection();
     }
     
+    public void inserir(Cliente cli) throws SQLException {
+        
+        String sql = "insert into cliente "
+                + "(nomcli, endcli, "
+                + "baicli, comcli, cepcli, celcli) "
+                + "values (?, ?, ?, ?, ?, ?);";
+        
+        try (PreparedStatement st = this.con.prepareStatement(sql)) {
+            st.setString(1, cli.getNomcli());
+            st.setString(2, cli.getEndcli());
+            st.setString(3, cli.getBaicli());
+            st.setString(4, cli.getComcli());
+            st.setLong(5, cli.getCepcli());
+            st.setLong(6, cli.getCelcli());
+            
+            st.execute();
+            st.close();
+        }
+        
+        this.con.close();
+        
+    }
+    
     public List<Cliente> listarClientes() throws SQLException {
         String sql = "select * from cliente";
         

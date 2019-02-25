@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cliente` (
-  `codcli` int(5) NOT NULL,
+  `codcli` int(5) NOT NULL AUTO_INCREMENT,
   `nomcli` varchar(60) DEFAULT NULL,
   `endcli` varchar(120) DEFAULT NULL,
   `baicli` varchar(60) DEFAULT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `cliente` (
   `cepcli` int(8) DEFAULT NULL,
   `celcli` int(11) DEFAULT NULL,
   PRIMARY KEY (`codcli`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (2,'Bruno Amorim','Rua Clarefield','Bairro Carrotes','Em frente à gráfica Mamuttes',88350100,997785470),(3,'Bruno Oregon','Av Clemente','Luucas','Em frente à gráfica Charles',88350100,996785670);
+INSERT INTO `cliente` VALUES (2,'Bruno Amorim','Rua Clarefield','Bairro Carrotes','Em frente à gráfica Mamuttes',88350100,997785470),(3,'Bruno Oregon','Av Clemente','Luucas','Em frente à gráfica Charles',88350100,996785670),(4,'João','Av. 1º de maior','1º de maio','Teste',88352490,991925105);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-25 17:45:11
+-- Dump completed on 2019-02-25 20:47:41
