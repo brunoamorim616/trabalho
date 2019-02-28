@@ -54,8 +54,8 @@ public class ClienteDao extends ConnectionFactory {
                 c.setEndcli(rs.getString("endcli"));
                 c.setBaicli(rs.getString("baicli"));
                 c.setComcli(rs.getString("comcli"));
-                c.setCepcli(rs.getInt("cepcli"));
-                c.setCelcli(rs.getInt("celcli"));
+                c.setCepcli(rs.getLong("cepcli"));
+                c.setCelcli(rs.getLong("celcli"));
                 
                 clientes.add(c);
             }

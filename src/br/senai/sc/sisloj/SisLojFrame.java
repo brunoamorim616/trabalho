@@ -6,10 +6,12 @@
 package br.senai.sc.sisloj;
 
 import br.senai.sc.sisloj.views.CadastroCliente;
+import br.senai.sc.sisloj.views.ListagemCliente;
 import br.senai.sc.sisloj.views.PainelAmarelo;
 import br.senai.sc.sisloj.views.PainelRosa;
 import br.senai.sc.sisloj.views.TelaPadrao;
 import java.awt.CardLayout;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,11 +31,13 @@ public class SisLojFrame extends javax.swing.JFrame {
         PainelAmarelo pAmarelo = new PainelAmarelo();
         CadastroCliente cadCli = new CadastroCliente();
         TelaPadrao tp = new TelaPadrao();
+        ListagemCliente lc = new ListagemCliente();
 
         painelPrincipal.add(pRosa, "painelRosa");
         painelPrincipal.add(pAmarelo, "painelAmarelo");
         painelPrincipal.add(cadCli, "cadastroCliente");
         painelPrincipal.add(tp, "telaPadrao");
+        painelPrincipal.add(lc, "listaClientes");
 
         //Chamar a tela padrão aqui
         CardLayout cl = (CardLayout) painelPrincipal.getLayout();
@@ -148,7 +152,8 @@ public class SisLojFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_menCadastrarClienteActionPerformed
 
     private void menListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menListarClienteActionPerformed
-        // TODO add your handling code here:
+         CardLayout cl = (CardLayout) painelPrincipal.getLayout();
+        cl.show(painelPrincipal, "listaClientes");
     }//GEN-LAST:event_menListarClienteActionPerformed
 
     private void menPainelRosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menPainelRosaActionPerformed
