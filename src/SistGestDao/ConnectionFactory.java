@@ -1,4 +1,4 @@
-package br.senai.sc.sisloj.dao;
+package SistGestDao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
