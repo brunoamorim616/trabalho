@@ -20,8 +20,8 @@ public class ColaboradorDao extends ConnectionFactory {
     
     public void inserir(Colaborador col) throws SQLException {
 
-        String sql = "insert into cliente (usuario, senha, nome, rua, bairro, cep, cidade, estado, telefone)"
-                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into colaborador (usuario, senha, nome, rua, bairro, cep, cidade, estado, telefone, tipo, equipe_id)"
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement st = this.con.prepareStatement(sql)) {
             st.setString(1, col.getUsuario());
@@ -29,10 +29,12 @@ public class ColaboradorDao extends ConnectionFactory {
             st.setString(3, col.getNome());
             st.setString(4, col.getRua());
             st.setString(5, col.getBairro());
-            st.setLong(6, col.getCep());
+            st.setString(6, col.getCep());
             st.setString(7, col.getCidade());
             st.setString(8, col.getEstado());
-            st.setLong(9, col.getTelefone());
+            st.setString(9, col.getTelefone());
+            st.setString(10, col.getTipo());
+            st.setInt(11, col.getEquipe_id());
             
             st.execute();
             st.close();

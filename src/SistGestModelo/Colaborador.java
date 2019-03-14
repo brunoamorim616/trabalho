@@ -4,7 +4,8 @@ package SistGestModelo;
 public class Colaborador {
 
     private int id;
-    private boolean tipo;
+    private int equipe_id;
+    private String tipo;
     private String usuario;
     private String senha;
     private String nome;
@@ -12,10 +13,10 @@ public class Colaborador {
     private String bairro;
     private String cidade;
     private String estado;
-    private long cep;
-    private long telefone;
-    
-        public int getId() {
+    private String cep;
+    private String telefone;
+
+    public int getId() {
         return id;
     }
 
@@ -23,11 +24,19 @@ public class Colaborador {
         this.id = id;
     }
 
-    public boolean isTipo() {
+    public int getEquipe_id() {
+        return equipe_id;
+    }
+
+    public void setEquipe_id(int equipe_id) {
+        this.equipe_id = equipe_id;
+    }
+
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(boolean tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -87,19 +96,23 @@ public class Colaborador {
         this.estado = estado;
     }
 
-    public long getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(long cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
-    public long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+   
+    
+        
 }

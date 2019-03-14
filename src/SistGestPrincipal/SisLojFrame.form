@@ -4,20 +4,20 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="barraDeMenu">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menCliente">
+        <Menu class="javax.swing.JMenu" name="opcaoVoltar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="OP&#xc7;&#xd5;ES"/>
+            <Property name="text" type="java.lang.String" value="VOLTAR PARA"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menCadastrarCliente">
+            <MenuItem class="javax.swing.JMenuItem" name="voltar">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="F6"/>
+                  <KeyStroke key="F5"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="VOLTAR"/>
+                <Property name="text" type="java.lang.String" value="MENU"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menCadastrarClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -266,6 +266,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agenda Colaborador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgendaColaboradorActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAgendaEquipe">
               <Properties>
@@ -317,6 +320,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarColaboradorActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnListarEquipe">
               <Properties>

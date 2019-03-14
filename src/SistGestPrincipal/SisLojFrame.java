@@ -31,12 +31,12 @@ public class SisLojFrame extends javax.swing.JFrame {
         PainelPrincipal.add(ag, "agenda");
         PainelPrincipal.add(cad, "cadColab");
         PainelPrincipal.add(loginPrincipal, "login");
-        PainelPrincipal.add(PainelPrincipal, "menuPrincipal");
+        PainelPrincipal.add(menuPrincipal, "menuPrincipal");
         
 
         //Chamar a tela padrão aqui
         CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
-        cl.show(PainelPrincipal, "menuPrincipal");
+        cl.show(PainelPrincipal, "login");
         
         this.setExtendedState(MAXIMIZED_BOTH);
 
@@ -80,8 +80,8 @@ public class SisLojFrame extends javax.swing.JFrame {
         cpSenha = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         barraDeMenu = new javax.swing.JMenuBar();
-        menCliente = new javax.swing.JMenu();
-        menCadastrarCliente = new javax.swing.JMenuItem();
+        opcaoVoltar = new javax.swing.JMenu();
+        voltar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema para gestão de loja");
@@ -108,6 +108,11 @@ public class SisLojFrame extends javax.swing.JFrame {
         lbAgenda.setText("Agenda");
 
         btnAgendaColaborador.setText("Agenda Colaborador");
+        btnAgendaColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgendaColaboradorActionPerformed(evt);
+            }
+        });
 
         btnAgendaEquipe.setText("Agenda Equipe");
 
@@ -127,6 +132,11 @@ public class SisLojFrame extends javax.swing.JFrame {
         btnEliminarEquipe.setText("Eliminar");
 
         btnCadastrarColaborador.setText("Cadastrar");
+        btnCadastrarColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarColaboradorActionPerformed(evt);
+            }
+        });
 
         btnListarEquipe.setText("Listar");
 
@@ -310,18 +320,18 @@ public class SisLojFrame extends javax.swing.JFrame {
 
         PainelPrincipal.add(loginPrincipal, "card3");
 
-        menCliente.setText("OPÇÕES");
+        opcaoVoltar.setText("VOLTAR PARA");
 
-        menCadastrarCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
-        menCadastrarCliente.setText("VOLTAR");
-        menCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+        voltar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        voltar.setText("MENU");
+        voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menCadastrarClienteActionPerformed(evt);
+                voltarActionPerformed(evt);
             }
         });
-        menCliente.add(menCadastrarCliente);
+        opcaoVoltar.add(voltar);
 
-        barraDeMenu.add(menCliente);
+        barraDeMenu.add(opcaoVoltar);
 
         setJMenuBar(barraDeMenu);
 
@@ -339,11 +349,10 @@ public class SisLojFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menCadastrarClienteActionPerformed
-       
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
-        cl.show(PainelPrincipal, "cadastroCliente");
-    }//GEN-LAST:event_menCadastrarClienteActionPerformed
+        cl.show(PainelPrincipal, "menuPrincipal");
+    }//GEN-LAST:event_voltarActionPerformed
 
     private void cpUsuario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpUsuario2ActionPerformed
 
@@ -357,6 +366,16 @@ public class SisLojFrame extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
         cl.show(this.PainelPrincipal, "menuPrincipal");
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnAgendaColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendaColaboradorActionPerformed
+        CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
+        cl.show(PainelPrincipal, "agenda");
+    }//GEN-LAST:event_btnAgendaColaboradorActionPerformed
+
+    private void btnCadastrarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarColaboradorActionPerformed
+        CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
+        cl.show(PainelPrincipal, "cadColab");
+    }//GEN-LAST:event_btnCadastrarColaboradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,8 +441,8 @@ public class SisLojFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbSistema;
     private javax.swing.JLabel lbTarefa;
     private javax.swing.JPanel loginPrincipal;
-    private javax.swing.JMenuItem menCadastrarCliente;
-    private javax.swing.JMenu menCliente;
     private javax.swing.JPanel menuPrincipal;
+    private javax.swing.JMenu opcaoVoltar;
+    private javax.swing.JMenuItem voltar;
     // End of variables declaration//GEN-END:variables
 }
