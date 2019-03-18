@@ -5,11 +5,20 @@
  */
 package SistGestPrincipal;
 
+import SistGestDao.ColaboradorDao;
+import SistGestDao.ConnectionFactory;
+import SistGestModelo.Colaborador;
 import SistGestViews.CadastroColaborador;
 import SistGestViews.Agenda;
 import java.awt.CardLayout;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -22,10 +31,13 @@ public class SisLojFrame extends javax.swing.JFrame {
      */
     public SisLojFrame() {
         initComponents();
+        voltar.setEnabled(false);
 
         //Cria os componentes
         Agenda ag = new Agenda();
         CadastroColaborador cad = new CadastroColaborador();
+        ConnectionFactory con = new ConnectionFactory();
+        ColaboradorDao col = new ColaboradorDao();
         
 
         PainelPrincipal.add(ag, "agenda");
@@ -363,8 +375,40 @@ public class SisLojFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cpSenhaActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
-        cl.show(this.PainelPrincipal, "menuPrincipal");
+        String senhaAux="",loginAux="";
+        loginAux = cpUsuario2.getText();
+        senhaAux = cpSenha.getText();
+            
+        ColaboradorDao colDao = new ColaboradorDao();
+        
+        Colaborador c;
+        try {
+            c = colDao.getColaborador(loginAux, senhaAux);
+            
+            if(c == null){
+                String mensagem = "Senha ou usuario Incorretos";
+                
+                JOptionPane.showMessageDialog (null, mensagem);
+            }else{
+                String mensagem2 = "Bem vindo!";
+                JOptionPane.showMessageDialog (null, mensagem2);
+                
+                CardLayout cl = (CardLayout) PainelPrincipal.getLayout();;
+                cl.show(this.PainelPrincipal, "menuPrincipal");
+                voltar.setEnabled(true);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SisLojFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+         
+        
+            
+        
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnAgendaColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendaColaboradorActionPerformed
