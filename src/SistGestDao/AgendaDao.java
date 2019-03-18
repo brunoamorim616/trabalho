@@ -78,7 +78,7 @@ public class AgendaDao extends ConnectionFactory  {
     }
 
     public List<Compromisso> listaCompromisso() throws SQLException {
-        String sql = "select * from cliente";
+        String sql = "select * from agenda";
         List<Compromisso> clientes = null;
 
         try (PreparedStatement st = this.con.prepareStatement(sql)) {
