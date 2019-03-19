@@ -68,11 +68,11 @@ public class ListagemColaboradores extends javax.swing.JPanel {
 
     }
 
-    private void preencherCamposEdicao(int codigoColaborador) throws SQLException {
+    private void preencherCamposEdicao(String usuario, String senha, int idColaborador) throws SQLException {
         ColaboradorDao colab = new ColaboradorDao();
 //(usuario, senha, nome, rua, bairro, cep, cidade, estado, telefone, tipo, equipe_id)
         
-            Colaborador colaborador = colab.getColaborador(codigoColaborador);
+            Colaborador colaborador = colab.getColaborador(usuario, senha, idColaborador);
             
             cpEquipeId.setText(""+colaborador.getEquipe_id());
             cpUsuario.setText(colaborador.getUsuario());
@@ -83,6 +83,7 @@ public class ListagemColaboradores extends javax.swing.JPanel {
             cpEstado.setText(colaborador.getEstado());
             cpTelefone.setText(colaborador.getTelefone());
             cpTipo.setText(colaborador.getTipo());
+            
             
        
     }
@@ -386,7 +387,7 @@ public class ListagemColaboradores extends javax.swing.JPanel {
             int codigoColaborador = this.idColaborador = Integer.parseInt(codigo);
             
             try {
-                this.preencherCamposEdicao(codigoColaborador);
+                this.preencherCamposEdicao(codigo, codigo, codigoColaborador);
             } catch (SQLException ex) {
                 Logger.getLogger(ListagemColaboradores.class.getName()).log(Level.SEVERE, null, ex);
             }

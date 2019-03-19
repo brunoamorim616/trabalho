@@ -44,7 +44,7 @@ public class ColaboradorDao extends ConnectionFactory {
         }
     }
 
-    public Colaborador getColaborador(String usuario, String senha) throws SQLException {
+    public Colaborador getColaborador(String usuario, String senha, int idColaborador) throws SQLException {
         String sql = "select * from colaborador where usuario = ? and senha = ?";
 
         Colaborador c = null;
@@ -52,7 +52,7 @@ public class ColaboradorDao extends ConnectionFactory {
         try (PreparedStatement st = this.con.prepareStatement(sql)) {
             st.setString(1, usuario);
             st.setString(2, senha);
-            st.setInt(1, id);
+            st.setInt(3, idColaborador);
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {
                     c = new Colaborador();
