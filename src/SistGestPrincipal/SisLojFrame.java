@@ -10,6 +10,7 @@ import SistGestDao.ConnectionFactory;
 import SistGestModelo.Colaborador;
 import SistGestViews.CadastroColaborador;
 import SistGestViews.Agenda;
+import SistGestViews.ListagemColaboradores;
 import java.awt.CardLayout;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,12 +41,14 @@ public class SisLojFrame extends javax.swing.JFrame {
         CadastroColaborador cad = new CadastroColaborador();
         ConnectionFactory con = new ConnectionFactory();
         ColaboradorDao col = new ColaboradorDao();
+        ListagemColaboradores list = new ListagemColaboradores();
         
 
         PainelPrincipal.add(ag, "agenda");
         PainelPrincipal.add(cad, "cadColab");
         PainelPrincipal.add(loginPrincipal, "login");
         PainelPrincipal.add(menuPrincipal, "menuPrincipal");
+        PainelPrincipal.add(list, "listagemColab");
         
 
         //Chamar a tela padrão aqui
@@ -117,6 +120,11 @@ public class SisLojFrame extends javax.swing.JFrame {
         btnEditarTarefa.setText("Editar");
 
         btnListarColaborador.setText("Listar");
+        btnListarColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarColaboradorActionPerformed(evt);
+            }
+        });
 
         lbAgenda.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lbAgenda.setText("Agenda");
@@ -387,7 +395,7 @@ public class SisLojFrame extends javax.swing.JFrame {
         
         Colaborador c;
         try {
-            c = colDao.getColaborador(loginAux, senhaAux);
+            c = colDao.getColaboradorLogin(loginAux, senhaAux);
             
             if(c == null){
                 String mensagem = "Senha ou usuario Incorretos";
@@ -424,6 +432,11 @@ public class SisLojFrame extends javax.swing.JFrame {
         CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
         cl.show(PainelPrincipal, "cadColab");
     }//GEN-LAST:event_btnCadastrarColaboradorActionPerformed
+
+    private void btnListarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarColaboradorActionPerformed
+        CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
+        cl.show(PainelPrincipal, "listagemColab");
+    }//GEN-LAST:event_btnListarColaboradorActionPerformed
 
     /**
      * @param args the command line arguments

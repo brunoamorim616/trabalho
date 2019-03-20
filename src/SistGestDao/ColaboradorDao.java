@@ -44,7 +44,7 @@ public class ColaboradorDao extends ConnectionFactory {
         }
     }
 
-    public Colaborador getColaborador(String usuario, String senha, int idColaborador) throws SQLException {
+    public Colaborador getColaboradorLogin(String usuario, String senha) throws SQLException {
         String sql = "select * from colaborador where usuario = ? and senha = ?";
 
         Colaborador c = null;
@@ -52,7 +52,6 @@ public class ColaboradorDao extends ConnectionFactory {
         try (PreparedStatement st = this.con.prepareStatement(sql)) {
             st.setString(1, usuario);
             st.setString(2, senha);
-            st.setInt(3, idColaborador);
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {
                     c = new Colaborador();
@@ -77,6 +76,39 @@ public class ColaboradorDao extends ConnectionFactory {
         return c;
 
     }
+    
+    public Colaborador getColaboradorListagem(int idColaborador) throws SQLException {
+        String sql = "select * from colaborador where usuario = ? and senha = ?";
+
+        Colaborador c = null;
+
+        try (PreparedStatement st = this.con.prepareStatement(sql)) {
+            st.setInt(1, idColaborador);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    c = new Colaborador();
+                    c.setId(rs.getInt("id"));
+                    c.setTipo(rs.getString("tipo"));
+                    c.setBairro(rs.getString("bairro"));
+                    c.setCep(rs.getString("cep"));
+                    c.setCidade(rs.getString("cidade"));
+                    c.setEquipe_id(rs.getInt("equipe_id"));
+                    c.setEstado(rs.getString("estado"));
+                    c.setNome(rs.getString("nome"));
+                    c.setRua(rs.getString("rua"));
+                    c.setTelefone(rs.getString("telefone"));
+                    c.setSenha(rs.getString("senha"));
+                    c.setUsuario(rs.getString("usuario"));
+                }
+            }
+            st.close();
+        }
+
+        this.con.close();
+        return c;
+
+    }
+    
     public List<Colaborador> listarColaboradores() throws SQLException {
         String sql = "select * from colaborador";
         List<Colaborador> clientes = null;

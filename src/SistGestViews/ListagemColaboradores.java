@@ -72,7 +72,7 @@ public class ListagemColaboradores extends javax.swing.JPanel {
         ColaboradorDao colab = new ColaboradorDao();
 //(usuario, senha, nome, rua, bairro, cep, cidade, estado, telefone, tipo, equipe_id)
         
-            Colaborador colaborador = colab.getColaborador(usuario, senha, idColaborador);
+            Colaborador colaborador = colab.getColaboradorListagem(idColaborador);
             
             cpEquipeId.setText(""+colaborador.getEquipe_id());
             cpUsuario.setText(colaborador.getUsuario());
