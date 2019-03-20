@@ -70,9 +70,7 @@ public class SisLojFrame extends javax.swing.JFrame {
 
         PainelPrincipal = new javax.swing.JPanel();
         menuPrincipal = new javax.swing.JPanel();
-        btnEditarColaborador = new javax.swing.JButton();
         lbTarefa = new javax.swing.JLabel();
-        btnEliminarColaborador = new javax.swing.JButton();
         btnAdicionarTarefa = new javax.swing.JButton();
         btnEliminarTarefa = new javax.swing.JButton();
         btnEditarTarefa = new javax.swing.JButton();
@@ -106,12 +104,8 @@ public class SisLojFrame extends javax.swing.JFrame {
 
         PainelPrincipal.setLayout(new java.awt.CardLayout());
 
-        btnEditarColaborador.setText("Editar");
-
         lbTarefa.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lbTarefa.setText("Tarefas");
-
-        btnEliminarColaborador.setText("Eliminar");
 
         btnAdicionarTarefa.setText("Adicionar");
 
@@ -187,15 +181,13 @@ public class SisLojFrame extends javax.swing.JFrame {
                             .addGroup(menuPrincipalLayout.createSequentialGroup()
                                 .addGroup(menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnListarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnEliminarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnEditarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnAdicionarTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnEditarTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnEliminarTarefa, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(menuPrincipalLayout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(lbTarefa)))
+                                        .addComponent(lbTarefa))
+                                    .addComponent(btnListarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPrincipalLayout.createSequentialGroup()
@@ -237,7 +229,8 @@ public class SisLojFrame extends javax.swing.JFrame {
                             .addGroup(menuPrincipalLayout.createSequentialGroup()
                                 .addComponent(btnCadastrarColaborador)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEditarColaborador))))
+                                .addComponent(btnListarColaborador)
+                                .addGap(5, 5, 5))))
                     .addGroup(menuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(menuPrincipalLayout.createSequentialGroup()
                             .addGap(87, 87, 87)
@@ -261,11 +254,7 @@ public class SisLojFrame extends javax.swing.JFrame {
                         .addComponent(btnAgendaEquipe, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(menuPrincipalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminarColaborador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnListarColaborador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(64, 64, 64)
                         .addComponent(lbTarefa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAdicionarTarefa)
@@ -336,7 +325,7 @@ public class SisLojFrame extends javax.swing.JFrame {
                 .addGroup(loginPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSenha2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(btnLogin)
                 .addGap(85, 85, 85))
         );
@@ -375,6 +364,7 @@ public class SisLojFrame extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         CardLayout cl = (CardLayout) PainelPrincipal.getLayout();
         cl.show(PainelPrincipal, "menuPrincipal");
+        
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cpUsuario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpUsuario2ActionPerformed
@@ -395,7 +385,7 @@ public class SisLojFrame extends javax.swing.JFrame {
         
         Colaborador c;
         try {
-            c = colDao.getColaboradorLogin(loginAux, senhaAux);
+            c = colDao.getColaborador(loginAux, senhaAux);
             
             if(c == null){
                 String mensagem = "Senha ou usuario Incorretos";
@@ -481,10 +471,8 @@ public class SisLojFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAgendaColaborador;
     private javax.swing.JButton btnAgendaEquipe;
     private javax.swing.JButton btnCadastrarColaborador;
-    private javax.swing.JButton btnEditarColaborador;
     private javax.swing.JButton btnEditarEquipe;
     private javax.swing.JButton btnEditarTarefa;
-    private javax.swing.JButton btnEliminarColaborador;
     private javax.swing.JButton btnEliminarEquipe;
     private javax.swing.JButton btnEliminarTarefa;
     private javax.swing.JButton btnListarColaborador;

@@ -15,13 +15,13 @@ public class Colaborador {
     private String estado;
     private String cep;
     private String telefone;
+    
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getEquipe_id() {

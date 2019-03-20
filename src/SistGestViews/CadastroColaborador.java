@@ -68,38 +68,40 @@ public class CadastroColaborador extends javax.swing.JPanel {
             }
         });
 
-        cpCidade.setText("jTextField6");
+        cpCidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpCidadeActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setText("Cadastro");
 
         lEstado.setText("Estado:");
 
-        cpCep.setText("jTextField2");
-
         lUsuario.setText("Usuário:");
-
-        cpBairro.setText("jTextField7");
 
         lCidade.setText("Cidade:");
 
         lSenha.setText("Senha:");
 
-        cpRua.setText("jTextField9");
+        cpRua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpRuaActionPerformed(evt);
+            }
+        });
 
-        cpNome.setText("jTextField3");
+        cpNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpNomeActionPerformed(evt);
+            }
+        });
 
         lBairro.setText("Bairro:");
-
-        cpSenha.setText("jPasswordField1");
-
-        cpTelefone.setText("jTextField4");
 
         lRua.setText("Rua:");
 
         lNome.setText("Nome:");
-
-        cpEstado.setText("jTextField5");
 
         lCEP.setText("CEP:");
 
@@ -124,34 +126,33 @@ public class CadastroColaborador extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cpNome))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lEstado)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cpEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lBairro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cpBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cpEstado))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lCEP)
                                         .addGap(18, 18, 18)
-                                        .addComponent(cpCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cpCep, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lBairro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cpBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lTelefone)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cpTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cpTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lCidade)
                                             .addComponent(lRua))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cpRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cpCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 92, Short.MAX_VALUE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cpRua, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                                            .addComponent(cpCidade)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -166,7 +167,7 @@ public class CadastroColaborador extends javax.swing.JPanel {
                                         .addComponent(lbEquipeId)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(cpEquipeId, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                                         .addComponent(lSenha)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,6 +261,18 @@ public class CadastroColaborador extends javax.swing.JPanel {
             Logger.getLogger(CadastroColaborador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void cpNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpNomeActionPerformed
+
+    private void cpCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpCidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpCidadeActionPerformed
+
+    private void cpRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpRuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpRuaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
